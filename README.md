@@ -25,51 +25,51 @@ Things you may want to cover:
 
 ```ruby
 
-## userテーブル
+## usersテーブル
 |Column |Type   |Options                                     |
 |-------|-------|--------------------------------------------|
-|name   |string |null: false, foreign_key: true,index: true  |
-|email  |integer|null: false, unique: true                   |
-|pass   |integer|null: false                                 |
+|name   |string |null: false, index: true                    |
+|email  |string |null: false, unique: true                   |
+|pass   |string |null: false                                 |
 
 ### Association
-  has_many :groups
+  has_many :groups, through: :Users_Groups
   has_many :massages
 
 
-## messageテーブル
+## messagesテーブル
 |Column |Type   |Options                                    |
 |-------|-------|-------------------------------------------|
-|body   |text   |null: false, foreign_key: true,index: true |
+|body   |text   |foreign_key: true                          |
 |image  |string |foreign_key: true                          |
 
 ### Association
   belong_to :user
-  has_many :groups, through: :groups_messages
+  belong_to :group
+  
 
 
 
-
-# groupテーブル
+# groupsテーブル
 |Column     |Type   |Options                                    |
 |-----------|-------|-------------------------------------------|
-|group_name |string |null: false, foreign_key: true, index: true|
+|name       |string |null: false,  index: true                  |
 
 ### Association
-  belongs_to :user
-  has_many :messages, through: :groups_messages
+  has_many :users, through: :Users_Groups
+  has_many :messages
 
 
 
 
-# Group_Massageテーブル
+# User_Groupテーブル
 |Column     |Type   |Options                        |
 |-----------|-------|-------------------------------|
-|message_id |integer |null: false, foreign_key: true|
+|user_id    |integer |null: false, foreign_key: true|
 |group_id   |integer |null: false, foreign_key: true|
 
 ### Association
-  belongs_to :message
+  belongs_to :user
   belongs_to :group
 
 ```
