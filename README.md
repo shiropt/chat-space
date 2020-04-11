@@ -23,8 +23,7 @@ Things you may want to cover:
 
 * ...
 
-```ruby
-
+```
 ## usersテーブル
 |Column |Type   |Options                                     |
 |-------|-------|--------------------------------------------|
@@ -33,16 +32,18 @@ Things you may want to cover:
 |pass   |string |null: false                                 |
 
 ### Association
-  has_many :groups, through: :Users_Groups
-  has_many :Users_Groups
-  has_many :massages
+  has_many :groups, through: :users_groups
+  has_many :users_groups
+  has_many :messages
 
 
 ## messagesテーブル
-|Column |Type   |Options                                    |
-|-------|-------|-------------------------------------------|
-|body   |text   |foreign_key: true                          |
-|image  |string |foreign_key: true                          |
+|Column |Type      |Options                                    |
+|---------|--------|-------------------------------------------|
+|body     |text    |                                           |
+|image    |string  |                                           |
+|user_id  |integer |null: false, foreign_key: true             |
+|group_id |integer |null: false, foreign_key: true             |
 
 ### Association
   belongs_to :user
@@ -57,16 +58,16 @@ Things you may want to cover:
 |name       |string |null: false,  index: true                  |
 
 ### Association
-  has_many :users, through: :Users_Groups
+  has_many :users, through: :users_groups
   has_many :messages
-  has_many :Users_Groups
+  has_many :users_groups
 
 
 
 
-# User_Groupテーブル
-|Column     |Type   |Options                        |
-|-----------|-------|-------------------------------|
+# user_groupテーブル
+|Column     |Type    |Options                        |
+|-----------|--------|-------------------------------|
 |user_id    |integer |null: false, foreign_key: true|
 |group_id   |integer |null: false, foreign_key: true|
 
