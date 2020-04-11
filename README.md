@@ -34,6 +34,7 @@ Things you may want to cover:
 
 ### Association
   has_many :groups, through: :Users_Groups
+  has_many :Users_Groups
   has_many :massages
 
 
@@ -44,8 +45,8 @@ Things you may want to cover:
 |image  |string |foreign_key: true                          |
 
 ### Association
-  belong_to :user
-  belong_to :group
+  belongs_to :user
+  belongs_to :group
   
 
 
@@ -58,6 +59,7 @@ Things you may want to cover:
 ### Association
   has_many :users, through: :Users_Groups
   has_many :messages
+  has_many :Users_Groups
 
 
 
