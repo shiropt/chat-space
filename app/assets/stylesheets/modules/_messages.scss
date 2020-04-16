@@ -11,14 +11,17 @@
   
   
   .side-bar{
-    // height: 100vh;
+    position: relative;
     height: 100%;
     width: 300px;
     background: #2f3e51;
     font-weight:bold;
     color: $main-color;
+    overflow: scroll;
   &__top{
+    width: 300px;
     height: 100px;
+    position: fixed;
     background: #253141;
     display: flex;
     align-items: center;
@@ -47,6 +50,7 @@
   }
   &__group{
     width: 100%;
+    padding-top: 100px;
     // height: 96px;
     a{
       text-decoration: none;
@@ -63,12 +67,29 @@
     color:$main-color;
     padding:0px 20px 40px 20px;
     font-size:11px;
-        }
+  }
 }
-      
 
-      
-      
+
+
+.messages{
+  .message{
+    padding-bottom: 40px;
+    .upper-message{
+      display: flex;
+       &__user-name{
+         font-size: 16px;
+         font-weight: bold;
+         color: #434a54;;
+         margin-right: 10px;
+       }
+       &__date{
+         font-size:12px ;
+         color: #999999;
+       }
+    }
+  }
+}
 
 .main{
   position: relative;
@@ -112,23 +133,23 @@
         text-decoration:none
       }
     }
-    }
-      
-    &__space{
+  }
+  
+  &__space{
     margin-left: 40px;
     padding-top:35px;
     &--post{
-    display: flex;
-    .member{
-      color:#333333;
-      font-size: 16px;
-      padding-bottom: 12px;
-      padding-right: 5px;
-    }
-    .time{
-      color: #999999;
-      font-size: 12px;
-    }
+      display: flex;
+      .member{
+        color:#333333;
+        font-size: 16px;
+        padding-bottom: 12px;
+        padding-right: 5px;
+      }
+      .time{
+        color: #999999;
+        font-size: 12px;
+      }
     .content{
       color: #434A54 ;
       font-size: 14px;
@@ -146,34 +167,43 @@
     display: flex;
     margin-left: 50px;
     margin-top: 20px;
-    .input-box{
-      position: relative;
-      &__text{
-        width: calc(100vw - 505px);
-        height: 50px;
-      }
-      &__image{
-        cursor: pointer;
-        position: absolute;
-        right: 10px;
-        top:10px;
-        font-size: 1.5em 
-      }
-      .input-box__image--file{
-        display: none;
-      }
-    }
-  .submit-btn{
-    width: 100px;
-    height: 50px;
-    background: #38aef0;
-    color:$main-color;
-    cursor: pointer;
-    margin-left: 15px;
-    margin-right: 40px;
-    }
-  }
-}
-}
+    position: relative;
+    .new_message{
+      display: flex;
 
+      .input-box{
+        &__text{
+          position: relative;
+          width: calc(100vw - 505px);
+          height: 50px;
+        }
+        .icon{
+          cursor: pointer;
+          position: absolute;
+          right: 170px;
+          top:10px;
+          font-size: 1.5em 
+        }
+        &__btn{
+          width: 100px;
+          height: 50px;
+          background: #38aef0;
+          color:$main-color;
+          cursor: pointer;
+          margin-left: 15px;
+          margin-right: 40px;
+        }
+      }
+        
+        
+            
+    }
+        }
+    
+    
+      }
+}
+}
+.hidden{
+  display: none;
 }
