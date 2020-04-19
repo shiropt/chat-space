@@ -58,11 +58,13 @@ $(function(){
       $(".messages").append(html);
       $('.main__space').animate({ scrollTop: $('.main__space')[0].scrollHeight});
       $('form')[0].reset();
-      $(".input-box__btn").prop("disabled", false);
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
+    })
+    .always(function() {
+      $(".input-box__btn").prop("disabled", false);
+    });
   });
- });
 });
    
