@@ -2,13 +2,10 @@
   box-sizing: border-box;
 }
 
-
-
 .wrapper{
   width: 100vw;
   height: 100vh;
   display: flex;
-  
   
   .side-bar{
     position: relative;
@@ -139,6 +136,9 @@
     overflow: scroll;
     margin-left: 40px;
     padding-top:35px;
+    .messages{
+      height: 100%;
+    }
     &--post{
       display: flex;
       .member{

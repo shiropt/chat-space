@@ -1,5 +1,3 @@
-
-
 .main
   .main__top
     .main__top--left
@@ -9,19 +7,12 @@
         Member : 
         - @group.users.each do |user|
           = user.name
-
-
-
     .main__top--right
       = link_to edit_group_path(current_user)  do
         %p Edit
-
-  .main__space
-  
+  .main__space 
     .messages
       = render @messages
-    
-  
   .main__bottom   
     .form
       = form_for [@group, @message] do |f|
